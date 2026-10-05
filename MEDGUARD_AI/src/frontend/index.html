@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b1220">
+    <meta
+      name="description"
+      content="MedGuard AI local dashboard for synthetic healthcare IoT security telemetry."
+    >
+    <title>MedGuard AI | Security observability demo</title>
+    <link rel="icon" href="/public/favicon.ico" sizes="any">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="MedGuard AI home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>MedGuard <strong>AI</strong></span>
+      </a>
+      <div class="topbar-meta">
+        <span class="live-indicator"><span aria-hidden="true"></span> Local simulation</span>
+        <span class="privacy-label">Synthetic data only</span>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">CYBER IN HEALTHCARE · SIMULATION</p>
+          <h1>Security observability</h1>
+          <p class="subtitle">
+            Review illustrative device telemetry and rule-based alerts in a local-only demo.
+          </p>
+        </div>
+        <button id="simulate-button" class="button button-primary" type="button">
+          Simulate anomaly
+        </button>
+      </section>
+
+      <div id="status-banner" class="status-banner" role="status" aria-live="polite">
+        Connecting to the local demo service…
+      </div>
+
+      <section class="stats-grid" aria-label="System summary">
+        <article class="stat-card">
+          <span class="stat-label">Service status</span>
+          <strong id="service-status" class="stat-value">Checking</strong>
+          <span class="stat-note">Local API health</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Synthetic devices</span>
+          <strong id="device-count" class="stat-value">—</strong>
+          <span class="stat-note">Unique device labels</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Open alerts</span>
+          <strong id="open-alert-count" class="stat-value">—</strong>
+          <span class="stat-note">Awaiting reviewer acknowledgement</span>
+        </article>
+        <article class="stat-card">
+          <span class="stat-label">Recorded events</span>
+          <strong id="event-count" class="stat-value">—</strong>
+          <span class="stat-note">Most recent 50 shown</span>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel telemetry-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">DEVICE STREAM</p>
+              <h2>Recent telemetry</h2>
+            </div>
+            <span class="panel-tag">Synthetic</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Observed</th>
+                  <th scope="col">Device</th>
+                  <th scope="col">Reading</th>
+                  <th scope="col">Network</th>
+                </tr>
+              </thead>
+              <tbody id="telemetry-rows">
+                <tr><td class="empty-state" colspan="4">Loading synthetic events…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel alerts-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">RULE ENGINE</p>
+              <h2>Alert review</h2>
+            </div>
+            <span class="panel-tag panel-tag-warn">Human review</span>
+          </div>
+          <div id="alert-list" class="alert-list" aria-live="polite">
+            <p class="empty-state">Loading synthetic alerts…</p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="safety-note">
+        <strong>Demo safety:</strong> This application uses synthetic data and illustrative
+        security rules only. Alerts are not clinical advice or proof of compromise. Do not
+        connect this demo to real devices, patient data, or hospital networks.
+      </footer>
+    </main>
+  </body>
+</html>
